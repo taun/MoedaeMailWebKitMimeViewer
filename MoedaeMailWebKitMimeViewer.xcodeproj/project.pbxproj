@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C5CF82E718B7A32F00CE92B3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CF82E618B7A32F00CE92B3 /* Cocoa.framework */; };
+		C5CF82F118B7A32F00CE92B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5CF82EF18B7A32F00CE92B3 /* InfoPlist.strings */; };
+		C5CF82FA18B7A3B300CE92B3 /* MMPWebKitMimeViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CF82F918B7A3B300CE92B3 /* MMPWebKitMimeViewer.m */; };
+		C5CF82FC18B7A4B500CE92B3 /* MoedaeMailPlugins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CF82FB18B7A4B500CE92B3 /* MoedaeMailPlugins.framework */; };
+		C5CF82FE18B7A4E500CE92B3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CF82FD18B7A4E500CE92B3 /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C5CF82E318B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer.mmmimeviewerplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoedaeMailWebKitMimeViewer.mmmimeviewerplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5CF82E618B7A32F00CE92B3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C5CF82E918B7A32F00CE92B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C5CF82EA18B7A32F00CE92B3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C5CF82EB18B7A32F00CE92B3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C5CF82EE18B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoedaeMailWebKitMimeViewer-Info.plist"; sourceTree = "<group>"; };
+		C5CF82F018B7A32F00CE92B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C5CF82F218B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoedaeMailWebKitMimeViewer-Prefix.pch"; sourceTree = "<group>"; };
+		C5CF82F818B7A3B300CE92B3 /* MMPWebKitMimeViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPWebKitMimeViewer.h; sourceTree = "<group>"; };
+		C5CF82F918B7A3B300CE92B3 /* MMPWebKitMimeViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPWebKitMimeViewer.m; sourceTree = "<group>"; };
+		C5CF82FB18B7A4B500CE92B3 /* MoedaeMailPlugins.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoedaeMailPlugins.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MailBoxesWS-flefgebzxrtslzetgxarmnthbbgu/Build/Products/Debug/MoedaeMailPlugins.framework"; sourceTree = "<group>"; };
+		C5CF82FD18B7A4E500CE92B3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5CF82E018B7A32F00CE92B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5CF82FE18B7A4E500CE92B3 /* WebKit.framework in Frameworks */,
+				C5CF82E718B7A32F00CE92B3 /* Cocoa.framework in Frameworks */,
+				C5CF82FC18B7A4B500CE92B3 /* MoedaeMailPlugins.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C5CF82DA18B7A32F00CE92B3 = {
+			isa = PBXGroup;
+			children = (
+				C5CF82EC18B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer */,
+				C5CF82E518B7A32F00CE92B3 /* Frameworks */,
+				C5CF82E418B7A32F00CE92B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C5CF82E418B7A32F00CE92B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF82E318B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer.mmmimeviewerplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5CF82E518B7A32F00CE92B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF82FD18B7A4E500CE92B3 /* WebKit.framework */,
+				C5CF82FB18B7A4B500CE92B3 /* MoedaeMailPlugins.framework */,
+				C5CF82E618B7A32F00CE92B3 /* Cocoa.framework */,
+				C5CF82E818B7A32F00CE92B3 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5CF82E818B7A32F00CE92B3 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF82E918B7A32F00CE92B3 /* Foundation.framework */,
+				C5CF82EA18B7A32F00CE92B3 /* CoreData.framework */,
+				C5CF82EB18B7A32F00CE92B3 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C5CF82EC18B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF82ED18B7A32F00CE92B3 /* Supporting Files */,
+				C5CF82F818B7A3B300CE92B3 /* MMPWebKitMimeViewer.h */,
+				C5CF82F918B7A3B300CE92B3 /* MMPWebKitMimeViewer.m */,
+			);
+			path = MoedaeMailWebKitMimeViewer;
+			sourceTree = "<group>";
+		};
+		C5CF82ED18B7A32F00CE92B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF82EE18B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer-Info.plist */,
+				C5CF82EF18B7A32F00CE92B3 /* InfoPlist.strings */,
+				C5CF82F218B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C5CF82E218B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5CF82F518B7A32F00CE92B3 /* Build configuration list for PBXNativeTarget "MoedaeMailWebKitMimeViewer" */;
+			buildPhases = (
+				C5CF82DF18B7A32F00CE92B3 /* Sources */,
+				C5CF82E018B7A32F00CE92B3 /* Frameworks */,
+				C5CF82E118B7A32F00CE92B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoedaeMailWebKitMimeViewer;
+			productName = MoedaeMailWebKitMimeViewer;
+			productReference = C5CF82E318B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer.mmmimeviewerplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5CF82DB18B7A32F00CE92B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "MOEDAE LLC";
+			};
+			buildConfigurationList = C5CF82DE18B7A32F00CE92B3 /* Build configuration list for PBXProject "MoedaeMailWebKitMimeViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C5CF82DA18B7A32F00CE92B3;
+			productRefGroup = C5CF82E418B7A32F00CE92B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5CF82E218B7A32F00CE92B3 /* MoedaeMailWebKitMimeViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C5CF82E118B7A32F00CE92B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5CF82F118B7A32F00CE92B3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5CF82DF18B7A32F00CE92B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5CF82FA18B7A3B300CE92B3 /* MMPWebKitMimeViewer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C5CF82EF18B7A32F00CE92B3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5CF82F018B7A32F00CE92B3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C5CF82F318B7A32F00CE92B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C5CF82F418B7A32F00CE92B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C5CF82F618B7A32F00CE92B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MailBoxesWS-flefgebzxrtslzetgxarmnthbbgu/Build/Products/Debug",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoedaeMailWebKitMimeViewer/MoedaeMailWebKitMimeViewer-Prefix.pch";
+				INFOPLIST_FILE = "MoedaeMailWebKitMimeViewer/MoedaeMailWebKitMimeViewer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = mmmimeviewerplugin;
+			};
+			name = Debug;
+		};
+		C5CF82F718B7A32F00CE92B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MailBoxesWS-flefgebzxrtslzetgxarmnthbbgu/Build/Products/Debug",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoedaeMailWebKitMimeViewer/MoedaeMailWebKitMimeViewer-Prefix.pch";
+				INFOPLIST_FILE = "MoedaeMailWebKitMimeViewer/MoedaeMailWebKitMimeViewer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = mmmimeviewerplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C5CF82DE18B7A32F00CE92B3 /* Build configuration list for PBXProject "MoedaeMailWebKitMimeViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5CF82F318B7A32F00CE92B3 /* Debug */,
+				C5CF82F418B7A32F00CE92B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5CF82F518B7A32F00CE92B3 /* Build configuration list for PBXNativeTarget "MoedaeMailWebKitMimeViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5CF82F618B7A32F00CE92B3 /* Debug */,
+				C5CF82F718B7A32F00CE92B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C5CF82DB18B7A32F00CE92B3 /* Project object */;
+}
