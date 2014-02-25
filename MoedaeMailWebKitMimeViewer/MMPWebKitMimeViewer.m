@@ -62,8 +62,9 @@
     NSData* nodeData = self.node.decoded;
     
     if ([[mimeType uppercaseString] isEqualToString: @"TEXT/PLAIN"]) {
+        NSString* style = [NSString stringWithFormat: @"style=\"white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;\""];
         NSString* plainText = [[NSString alloc] initWithData: nodeData encoding: 4];
-        NSString* preFormatted = [NSString stringWithFormat: @"<pre>%@</pre>", plainText];
+        NSString* preFormatted = [NSString stringWithFormat: @"<pre %@>%@</pre>",style, plainText];
         nodeData = [preFormatted dataUsingEncoding: NSUTF8StringEncoding];
     }
     
