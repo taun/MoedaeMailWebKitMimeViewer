@@ -49,6 +49,8 @@
     for (NSString* mime in mimeTypesLower) {
         [upperMimeSet addObject: [mime uppercaseString]];
     }
+//    [upperMimeSet removeObject: @"TEXT/PLAIN"];
+    
     return [upperMimeSet copy];
 //    return [NSSet setWithObjects:@"TEXT/PLAIN", @"TEXT/HTML", @"TEXT/ENRICHED", @"APPLICATION/MSWORD",nil];
 }
@@ -72,7 +74,7 @@
     
     [mainFrame loadData: nodeData MIMEType: mimeType textEncodingName: @"utf-8" baseURL: nil];
     
-    [[mainFrame frameView] setAllowsScrolling: NO];
+//    [[mainFrame frameView] setAllowsScrolling: NO];
     
     [self setNeedsUpdateConstraints: YES];
 }
@@ -82,6 +84,7 @@
     
     WebView* nodeView = [[WebView alloc] initWithFrame: NSMakeRect(0, 0, subStructureSize.width, subStructureSize.height) frameName: @"MMPWebKitFrame" groupName: nil];
     [nodeView setFrameLoadDelegate: self];
+    [[[nodeView mainFrame] frameView] setAllowsScrolling: NO];
     // View in nib is min size. Therefore we can use nib dimensions as min when called from awakeFromNib
 //    [nodeView setMinSize: NSMakeSize(subStructureSize.width, subStructureSize.height)];
 //    [nodeView setMaxSize: NSMakeSize(FLT_MAX, FLT_MAX)];
@@ -132,29 +135,74 @@
 -(void) dealloc {
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver: self];
+    [(WebView*)(self.mimeView) setFrameLoadDelegate: nil];
+    [self setMimeView: nil];
+}
+#pragma mark - WebFrameLoadDelegate
+#pragma mark - Fixes for Autolayout full page view
+- (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
+    if (self.window) {
+        [self invalidateIntrinsicContentSize];
+    } else {
+//        NSLog(@"No Window");
+    }
+}
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
+    if (self.window) {
+        [self invalidateIntrinsicContentSize];
+    } else {
+//        NSLog(@"No Window");
+    }
 }
 
-#pragma mark - Fixes for Autolayout full page view
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
+    self.loadingDidFinish = YES;
+    
+    if (self.window) {
+        [self invalidateIntrinsicContentSize];
+    } else {
+//        NSLog(@"No Window");
+    }
+}
 /* get the document size after fully loaded */
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
-    [self invalidateIntrinsicContentSize];
+    self.loadingDidFinish = YES;
+    
+    if (self.window) {
+        [self invalidateIntrinsicContentSize];
+    } else {
+//        NSLog(@"No Window");
+    }
 }
 
 /* keep the document from being clipped by the automatic internal scrollview */
 -(NSSize) intrinsicContentSize {
-    CGFloat height = self.bounds.size.height;
+    NSSize newSize = NSMakeSize(NSViewNoInstrinsicMetric, NSViewNoInstrinsicMetric);
     
-    // set default value
-    
-    NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
-    if (docView) {
-        CGFloat docHeight = docView.frame.size.height;
-        if (docHeight > 0) {
-            height = docHeight;
+    if (self.loadingDidFinish) {
+        CGFloat height = self.bounds.size.height;
+        CGFloat width = self.bounds.size.width;
+        
+        // set default value
+        
+        NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
+        if (docView) {
+            CGFloat docHeight = docView.frame.size.height;
+            CGFloat docWidth = docView.frame.size.width;
+            
+            if (docHeight > 0) {
+                height = docHeight;
+            }
+            
+            if (docWidth > width) {
+                width = docWidth + 20.0;
+            } else {
+                width = NSViewNoInstrinsicMetric;
+            }
         }
+        newSize = NSMakeSize(width, height);
     }
     
-    NSSize newSize = NSMakeSize(NSViewNoInstrinsicMetric, height);
     return newSize;
 }
 /* update intrinsic size during view resizing */
@@ -164,17 +212,17 @@
     CGFloat docWidth = docView.frame.size.width;
     CGFloat myWidth = self.frame.size.width;
     
-    if (docWidth > myWidth) {
-        [[mainFrame frameView] setAllowsScrolling: YES];
-        NSScrollView* scroller = [docView enclosingScrollView];
-        [scroller setHasVerticalScroller: NO];
-        [scroller setVerticalScroller: nil];
+    if (docWidth > (myWidth+50)) {
+        [self invalidateIntrinsicContentSize];
+//        [[mainFrame frameView] setAllowsScrolling: YES];
+//        NSScrollView* scroller = [docView enclosingScrollView];
+//        [scroller setHasVerticalScroller: NO];
+//        [scroller setVerticalScroller: nil];
         
     } else {
-        [[mainFrame frameView] setAllowsScrolling: NO];
+//        [[mainFrame frameView] setAllowsScrolling: NO];
     }
 
-    [self invalidateIntrinsicContentSize];
 }
 
 @end
