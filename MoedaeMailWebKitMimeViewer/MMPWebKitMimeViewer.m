@@ -187,7 +187,7 @@
         
         NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
         if (docView) {
-            CGFloat docHeight = docView.frame.size.height;
+            CGFloat docHeight = docView.frame.size.height + 30.0;
             CGFloat docWidth = docView.frame.size.width;
             
             if (docHeight > 0) {
