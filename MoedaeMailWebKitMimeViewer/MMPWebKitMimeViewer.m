@@ -207,7 +207,7 @@
 }
 /* update intrinsic size during view resizing */
 -(void) viewFrameChanged:(NSView *)view {
-    WebFrame* mainFrame = [(WebView*)self.mimeView mainFrame];
+//    WebFrame* mainFrame = [(WebView*)self.mimeView mainFrame];
     NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
     CGFloat docWidth = docView.frame.size.width;
     CGFloat myWidth = self.frame.size.width;
