@@ -111,16 +111,6 @@
     
     //    [self setContentCompressionResistancePriority: NSLayoutPriorityFittingSizeCompression-1 forOrientation: NSLayoutConstraintOrientationVertical];
     //NSLayoutPriorityDefaultHigh
-    CGFloat borderWidth = 0.0;
-    [nodeView setWantsLayer: YES];
-    CALayer* rawLayer = nodeView.layer;
-    [rawLayer setBorderWidth: borderWidth];
-    [rawLayer setBorderColor: [[NSColor blueColor] CGColor]];
-    
-    
-    CALayer* myLayer = self.layer;
-    [myLayer setBorderWidth: borderWidth*2];
-    [myLayer setBorderColor: [[NSColor redColor] CGColor]];
     
     self.mimeView = nodeView;
     
@@ -187,15 +177,15 @@
         
         NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
         if (docView) {
-            CGFloat docHeight = docView.frame.size.height + 30.0;
-            CGFloat docWidth = docView.frame.size.width;
+            CGFloat docHeight = docView.bounds.size.height;
+            CGFloat docWidth = docView.bounds.size.width;
             
             if (docHeight > 0) {
-                height = docHeight;
+                height = docHeight + self.constraintVMargin*2;
             }
             
             if (docWidth > width) {
-                width = docWidth + 20.0;
+                width = docWidth + self.constraintVMargin*2;
             } else {
                 width = NSViewNoInstrinsicMetric;
             }
@@ -209,18 +199,28 @@
 -(void) viewFrameChanged:(NSView *)view {
 //    WebFrame* mainFrame = [(WebView*)self.mimeView mainFrame];
     NSView* docView = [[[(WebView*)self.mimeView mainFrame] frameView] documentView];
-    CGFloat docWidth = docView.frame.size.width;
-    CGFloat myWidth = self.frame.size.width;
+
+    NSSize docSize = docView.bounds.size;
+    CGFloat docWidth = docSize.width;
+    CGFloat docHeight = docSize.height;
     
-    if (docWidth > (myWidth+50)) {
+    NSSize mySize = self.bounds.size;
+    CGFloat myWidth = mySize.width;
+    CGFloat myHeight = mySize.height;
+    
+    
+    if ((docWidth+self.constraintVMargin*2 > myWidth) || (docHeight+self.constraintVMargin*2 > myHeight)) {
         [self invalidateIntrinsicContentSize];
 //        [[mainFrame frameView] setAllowsScrolling: YES];
 //        NSScrollView* scroller = [docView enclosingScrollView];
 //        [scroller setHasVerticalScroller: NO];
 //        [scroller setVerticalScroller: nil];
         
+    } else if (docHeight+self.constraintVMargin*2 < myHeight) {
+        
     } else {
-//        [[mainFrame frameView] setAllowsScrolling: NO];
+        //        [[mainFrame frameView] setAllowsScrolling: NO];
+        [self setNeedsLayout: YES];
     }
 
 }
