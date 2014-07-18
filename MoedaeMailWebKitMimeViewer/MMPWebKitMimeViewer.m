@@ -63,12 +63,21 @@
     
     NSData* nodeData = self.node.decoded;
     
-    if ([[mimeType uppercaseString] isEqualToString: @"TEXT/PLAIN"]) {
+    if (nodeData) {
+        if ([[mimeType uppercaseString] isEqualToString: @"TEXT/PLAIN"]) {
+            NSString* style = [NSString stringWithFormat: @"style=\"white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;\""];
+            NSString* plainText = [[NSString alloc] initWithData: nodeData encoding: 4];
+            NSString* preFormatted = [NSString stringWithFormat: @"<pre %@>%@</pre>",style, plainText];
+            nodeData = [preFormatted dataUsingEncoding: NSUTF8StringEncoding];
+        }
+    } else {
+        // unable to load node data for unknown reason. Probably no network connection.
         NSString* style = [NSString stringWithFormat: @"style=\"white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;\""];
-        NSString* plainText = [[NSString alloc] initWithData: nodeData encoding: 4];
+        NSString* plainText = @"Unable to load full message for an unknown reason. \nProbably no network connection.";
         NSString* preFormatted = [NSString stringWithFormat: @"<pre %@>%@</pre>",style, plainText];
         nodeData = [preFormatted dataUsingEncoding: NSUTF8StringEncoding];
     }
+    
     
 //    NSString* charset = self.node.charset;
     
